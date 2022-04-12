@@ -1,6 +1,6 @@
 {
   "name": "@navvi/react-use-metamask",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Metamask hook for react apps",
   "main": "index.js",
   "scripts": {
