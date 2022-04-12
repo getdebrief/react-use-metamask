@@ -1,6 +1,6 @@
 {
   "name": "@navvi/react-use-metamask",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Metamask hook for react apps",
   "main": "dist/lib/index.js",
   "types": "dist/types/types.d.ts",
@@ -10,7 +10,8 @@
     "test:cover": "jest --coverage",
     "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\"",
     "lint": "npx eslint --ext .ts --ext .tsx --max-warnings 0 .",
-    "lint-fix": "npx eslint --ext .ts --ext .tsx --max-warnings 0 --fix ./src"
+    "lint-fix": "npx eslint --ext .ts --ext .tsx --max-warnings 0 --fix ./src",
+    "prepublish": "npm run build"
   },
   "author": "ned@navvi.xyz",
   "license": "MIT",
