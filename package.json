@@ -1,6 +1,6 @@
 {
   "name": "@navvi/react-use-metamask",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Metamask hook for react apps",
   "main": "dist/index.js",
   "types": "dist/types.d.ts",
@@ -15,6 +15,10 @@
   },
   "author": "ned@navvi.xyz",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getdebrief/react-use-metamask.git"
+  },
   "devDependencies": {
     "@testing-library/react-hooks": "^8.0.0",
     "@types/chai": "^4.3.0",
