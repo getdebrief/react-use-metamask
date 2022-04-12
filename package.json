@@ -1,9 +1,9 @@
 {
   "name": "@navvi/react-use-metamask",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Metamask hook for react apps",
-  "main": "dist/index.js",
-  "types": "dist/types.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest",
