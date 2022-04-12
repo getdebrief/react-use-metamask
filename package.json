@@ -1,7 +1,7 @@
 {
-  "name": "typescript-starter",
+  "name": "@navvi/react-use-metamask",
   "version": "1.0.0",
-  "description": "Typescript starter (non-react)",
+  "description": "Metamask hook for react apps",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -10,7 +10,7 @@
     "lint": "npx eslint --ext .ts --ext .tsx --max-warnings 0 .",
     "lint-fix": "npx eslint --ext .ts --ext .tsx --max-warnings 0 --fix ./src"
   },
-  "author": "",
+  "author": "ned@navvi.xyz",
   "license": "MIT",
   "devDependencies": {
     "@testing-library/react-hooks": "^8.0.0",
