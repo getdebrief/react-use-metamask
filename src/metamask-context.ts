@@ -28,8 +28,6 @@ export type MetaMaskConnected = {
   account: string;
   chainId: string;
   status: 'connected';
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  eth: any;
 };
 
 export type MetaMaskState =

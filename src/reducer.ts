@@ -61,7 +61,6 @@ export function reducer(state: MetaMaskState, action: Action): MetaMaskState {
         chainId: action.payload.chainId,
         account: action.payload.accounts[0],
         status: 'connected',
-        eth: action.eth,
       };
     case 'metaMaskConnecting':
       if (state.status === 'initializing' || state.status === 'unavailable') {
