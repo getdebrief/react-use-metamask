@@ -41,6 +41,7 @@ async function synchronize(dispatch: (action: Action) => void) {
     dispatch({
       type: 'metaMaskConnected',
       payload: { accounts: accessibleAccounts, chainId },
+      eth: ethereum,
     });
   }
 }
@@ -92,7 +93,11 @@ function requestAccounts(
       const chainId: string = await ethereum.request({
         method: 'eth_chainId',
       });
-      dispatch({ type: 'metaMaskConnected', payload: { accounts, chainId } });
+      dispatch({
+        type: 'metaMaskConnected',
+        payload: { accounts, chainId },
+        eth: ethereum,
+      });
       resolve(accounts);
     }, 200);
     ethereum
@@ -104,7 +109,11 @@ function requestAccounts(
         const chainId: string = await ethereum.request({
           method: 'eth_chainId',
         });
-        dispatch({ type: 'metaMaskConnected', payload: { accounts, chainId } });
+        dispatch({
+          type: 'metaMaskConnected',
+          payload: { accounts, chainId },
+          eth: ethereum,
+        });
         resolve(accounts);
       })
       .catch((err: unknown) => {
