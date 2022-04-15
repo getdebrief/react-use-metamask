@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useCallback, useEffect, useMemo, useReducer } from 'react';
 import {
   IMetaMaskContext,
   MetaMaskState,
@@ -136,21 +136,21 @@ const initialState: MetaMaskState = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function MetaMaskProvider(props: any) {
-  const [state, unsafeDispatch] = React.useReducer(reducer, initialState);
+export function MetaMaskProvider(props: any): JSX.Element {
+  const [state, unsafeDispatch] = useReducer(reducer, initialState);
   const dispatch = useSafeDispatch(unsafeDispatch);
 
   const { status } = state;
 
   const isInitializing = status === 'initializing';
-  React.useEffect(() => {
+  useEffect(() => {
     if (isInitializing) {
       synchronize(dispatch);
     }
   }, [dispatch, isInitializing]);
 
   const isConnected = status === 'connected';
-  React.useEffect(() => {
+  useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     if (!isConnected) return () => {};
     const unsubscribe = subsribeToAccountsChanged(dispatch);
@@ -158,14 +158,14 @@ export function MetaMaskProvider(props: any) {
   }, [dispatch, isConnected]);
 
   const isAvailable = status !== 'unavailable' && status !== 'initializing';
-  React.useEffect(() => {
+  useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     if (!isAvailable) return () => {};
     const unsubscribe = subscribeToChainChanged(dispatch);
     return unsubscribe;
   }, [dispatch, isAvailable]);
 
-  const connect = React.useCallback(() => {
+  const connect = useCallback(() => {
     if (!isAvailable) {
       console.warn(
         '`enable` method has been called while MetaMask is not available or synchronising. Nothing will be done in this case.'
@@ -175,7 +175,7 @@ export function MetaMaskProvider(props: any) {
     return requestAccounts(dispatch);
   }, [dispatch, isAvailable]);
 
-  const value: IMetaMaskContext = React.useMemo(
+  const value: IMetaMaskContext = useMemo(
     () => ({
       ...state,
       connect,
